@@ -62,23 +62,23 @@ void set_column(matrix_t matrix, int column, vec4_t vector)
     set_element(matrix, 3, column, vector.w);
 }
 
-vec4_t get_row(matrix_t matrix, int row)
-{
-    vec4_t vector;
-    vector.x = get_element(matrix, row, 0);
-    vector.y = get_element(matrix, row, 1);
-    vector.z = get_element(matrix, row, 2);
-    vector.w = get_element(matrix, row, 3);
-    return vector;
-}
-
-vec4_t get_column(matrix_t matrix, int column)
+vec4_t get_row(matrix_t matrix, int column)
 {
     vec4_t vector;
     vector.x = get_element(matrix, 0, column);
     vector.y = get_element(matrix, 1, column);
     vector.z = get_element(matrix, 2, column);
     vector.w = get_element(matrix, 3, column);
+    return vector;
+}
+
+vec4_t get_column(matrix_t matrix, int row)
+{
+    vec4_t vector;
+    vector.x = get_element(matrix, row, 0);
+    vector.y = get_element(matrix, row, 1);
+    vector.z = get_element(matrix, row, 2);
+    vector.w = get_element(matrix, row, 3);
     return vector;
 }
 
