@@ -27,6 +27,7 @@ vec4_t mul_vec4(vec4_t dst, vec4_t src);
 vec4_t div_vec4(vec4_t dst, vec4_t src);
 vec4_t add_vec4(vec4_t dst, vec4_t src);
 vec4_t min_vec4(vec4_t dst, vec4_t src);
+int equals_vec4(vec4_t dst, vec4_t src);
 
 vec3_t create_vec3(float x, float y, float z);
 void set_vec3(vec3_t vector, float x, float y, float z);
@@ -38,6 +39,7 @@ vec3_t mul_vec3(vec3_t dst, vec3_t src);
 vec3_t div_vec3(vec3_t dst, vec3_t src);
 vec3_t add_vec3(vec3_t dst, vec3_t src);
 vec3_t min_vec3(vec3_t dst, vec3_t src);
+int equals_vec3(vec4_t dst, vec4_t src);
 
 vec2_t create_vec2(float x, float y);
 void set_vec2(vec4_t vector, float x, float y);
@@ -48,5 +50,6 @@ vec2_t mul_vec2(vec2_t dst, vec2_t src);
 vec2_t div_vec2(vec2_t dst, vec2_t src);
 vec2_t add_vec2(vec2_t dst, vec2_t src);
 vec2_t min_vec2(vec2_t dst, vec2_t src);
+int equals_vec2(vec4_t dst, vec4_t src);
 
 #endif

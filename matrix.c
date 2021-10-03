@@ -13,6 +13,42 @@ matrix_t create_matrix()
     return matrix;
 }
 
+void fill(matrix_t matrix, float number)
+{
+    for(int x = 0; x < MATRIX_WIDTH; x++)
+    {
+        for(int y = 0; y < MATRIX_HEIGHT; y++)
+        {
+            matrix.matrix[x][y] = number;
+        }
+    }
+}
+
+void set(matrix_t matrix,
+         float e00, float e01, float e02, float e03,
+         float e10, float e11, float e12, float e13,
+         float e20, float e21, float e22, float e23,
+         float e30, float e31, float e32, float e33)
+{
+    matrix.matrix[0][0] = e00; matrix.matrix[0][1] = e01; matrix.matrix[0][2] = e02; matrix.matrix[0][3] = e03;
+	matrix.matrix[1][0] = e10; matrix.matrix[1][1] = e11; matrix.matrix[1][2] = e12; matrix.matrix[1][3] = e13;
+	matrix.matrix[2][0] = e20; matrix.matrix[2][1] = e21; matrix.matrix[2][2] = e22; matrix.matrix[2][3] = e23;
+	matrix.matrix[3][0] = e30; matrix.matrix[3][1] = e31; matrix.matrix[3][2] = e32; matrix.matrix[3][3] = e33;
+}
+
+int equals(matrix_t dst, matrix_t src)
+{
+    int status = 0;
+    for(int x = 0; x < MATRIX_WIDTH; x++)
+    {
+        for(int y = 0; y < MATRIX_HEIGHT; y++)
+        {
+            status = dst.matrix[x][y] == src.matrix[x][y];
+        }
+    }
+    return status;
+}
+
 void set_identity(matrix_t matrix, float diagonal)
 {
     matrix.matrix[0][0] = diagonal;
@@ -62,23 +98,23 @@ void set_column(matrix_t matrix, int column, vec4_t vector)
     set_element(matrix, 3, column, vector.w);
 }
 
-vec4_t get_row(matrix_t matrix, int column)
-{
-    vec4_t vector;
-    vector.x = get_element(matrix, 0, column);
-    vector.y = get_element(matrix, 1, column);
-    vector.z = get_element(matrix, 2, column);
-    vector.w = get_element(matrix, 3, column);
-    return vector;
-}
-
-vec4_t get_column(matrix_t matrix, int row)
+vec4_t get_row(matrix_t matrix, int row)
 {
     vec4_t vector;
     vector.x = get_element(matrix, row, 0);
     vector.y = get_element(matrix, row, 1);
     vector.z = get_element(matrix, row, 2);
     vector.w = get_element(matrix, row, 3);
+    return vector;
+}
+
+vec4_t get_column(matrix_t matrix, int column)
+{
+    vec4_t vector;
+    vector.x = get_element(matrix, 0, column);
+    vector.y = get_element(matrix, 1, column);
+    vector.z = get_element(matrix, 2, column);
+    vector.w = get_element(matrix, 3, column);
     return vector;
 }
 

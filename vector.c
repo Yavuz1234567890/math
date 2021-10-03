@@ -83,6 +83,11 @@ vec4_t min_vec4(vec4_t dst, vec4_t src)
     return vector;
 }
 
+int equals_vec4(vec4_t dst, vec4_t src)
+{
+    return dst.x == src.x && dst.y == src.y && dst.z == src.z && dst.w == src.w;
+}
+
 vec3_t create_vec3(float x, float y, float z)
 {
     vec3_t vector;
@@ -155,6 +160,11 @@ vec3_t min_vec3(vec3_t dst, vec3_t src)
     return vector;
 }
 
+int equals_vec3(vec3_t dst, vec3_t src)
+{
+    return dst.x == src.x && dst.y == src.y && dst.z == src.z;
+}
+
 vec2_t create_vec2(float x, float y)
 {
     vec2_t vector;
@@ -214,4 +224,9 @@ vec2_t min_vec2(vec2_t dst, vec2_t src)
     vector.x = dst.x - src.x;
     vector.y = dst.y - src.y;
     return vector;
+}
+
+int equals_vec2(vec2_t dst, vec2_t src)
+{
+    return dst.x == src.x && dst.y == src.y;
 }
